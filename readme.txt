@@ -1,6 +1,7 @@
 # Facebook Group Posting Bot
 This python script to automate the posting on the social media website like Facebook.
 
+![](demo_test.gif)
 
 ### What it does:
 As it is named, this python script automatically login/logout your Facebook account and posting your text-based content on the Facebook Group Pages you are a member of.
