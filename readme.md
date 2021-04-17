@@ -2,11 +2,11 @@
 
 ![](demo_test.gif)
 
-### What it does :
-As it is named, this python script automatically login/logout your Facebook account and posting your text-based content on the Facebook Group Pages you are a member of or any public groups . 
+### What it does ?
+As it is named, this python script automatically logs in  your Facebook account and posts your text-based content on the Facebook Groups you are a member of or any public groups . 
 
 
-### How does it work or Instructions to use **
+### How does it work or Instructions to use ?
   - ✔️ Open **fb_credentials.json** in notepad, and replace **yourloginemail** with your Facebook login email address, and email address should come between double-quotes. Also, perform the same thing with **yourpassword**, put your Facebook login password there (should come between double quotes) .
   
   - ✔️ To post the desire status/text, open the  **PostingContents.txt**  file in notepad, and add text there (this will not come in the double quotes).
