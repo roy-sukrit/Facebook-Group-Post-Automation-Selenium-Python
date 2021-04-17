@@ -1,5 +1,4 @@
 # Facebook Group Posting Bot 🔥
-![Profile views](https://gpvc.arturio.dev/roy-sukrit)  
 
 ![](demo_test.gif)
 
@@ -31,6 +30,7 @@ As it is named, this python script automatically login/logout your Facebook acco
 * Making a user friendly GUI 
 * Feature to add images and links
 * Refractoring the Code 
+
 
 
 
