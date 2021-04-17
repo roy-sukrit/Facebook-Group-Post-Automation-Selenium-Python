@@ -11,7 +11,7 @@ As it is named, this python script automatically logs in  your Facebook account 
   
   - ✔️ To post the desire status/text, open the  **PostingContents.txt**  file in notepad, and add text there (this will not come in the double quotes).
   
-  - ✔️ You have to paste the group ids  **facebook.com/groups/:id**   from the url in fb_credentials json file .
+  - ✔️ Most important step - You have note down all the facebook groups url and paste the group <ins>**ids**</ins>  **facebook.com/groups/:id** in fb_credentials json file ( id is generally a unique number to identify the facebook group) . This is the most common way to mess up you can run into element not found error. 
   
   - ✔️ After performing the two above steps, run the **fbPost.exe** .  
   
