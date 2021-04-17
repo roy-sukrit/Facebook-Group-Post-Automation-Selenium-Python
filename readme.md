@@ -2,7 +2,7 @@
 
 ![](demo_test.gif)
 
-### What it does:
+### What it does :
 As it is named, this python script automatically login/logout your Facebook account and posting your text-based content on the Facebook Group Pages you are a member of or any public groups . 
 
 
@@ -25,8 +25,8 @@ As it is named, this python script automatically login/logout your Facebook acco
 **Credits for chromedriver.exe:**
 - Thanks **Google** for creating <a href="https://chromedriver.chromium.org/">ChromeDriver</a> to control the chrome functions.
 
-#### Features i am working on
-
+#### Features i am working on :
+* Close after task completion 
 * Making a user friendly GUI 
 * Feature to add images and links
 * Refractoring the Code 
