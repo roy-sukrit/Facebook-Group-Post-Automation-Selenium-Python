@@ -11,7 +11,7 @@ As it is named, this python script automatically login/logout your Facebook acco
   
   - ✔️ To post the desire status/text, open the **PostingContents.txt** file in notepad, and add text there (this will not come in the double quotes).
   
-  - ✔️ You have to paste the group ids ( facebook.com /groups/: id ) from the url in fb_credentials json file .
+  - ✔️ You have to paste the group ids  ->  **facebook.com/groups/:id**  <- from the url in fb_credentials json file .
   
   - ✔️ After performing the two above steps, run the fb_post.exe .  
   
