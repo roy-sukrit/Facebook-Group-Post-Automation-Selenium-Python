@@ -5,6 +5,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+/files.py
+
+/img/download.png
+/img/qts9ublT.jpg
 
 # C extensions
 *.so

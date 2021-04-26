@@ -10,10 +10,10 @@ LOGIN_URL = 'https://www.facebook.com/login.php'
 GROUP_URL='https://www.facebook.com/groups/'
 
 options = webdriver.ChromeOptions()
-#&disable push notifications
+#^disable push notifications
 options.add_argument("--disable-notifications")
 
-#&disale usb device error
+#^disale usb device error
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
          
@@ -22,14 +22,16 @@ driver = webdriver.Chrome('./chromedriver.exe', options=options)
 
 
 class FacebookBot():
-    def __init__(self,data,text,groups):  
+    def __init__(self,data,text,groups,mode):  
         self.email= data['Email Address']
         self.password= data['Password']
+        self.mode = mode
         self.textContents = text
         self.groupdata=groups      
         self.fb_posting = ["//div[@class='m9osqain a5q79mjw jm1wdb64 k4urcfbm']",
                            "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div[1]/form/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div/div/div/div",
-                           "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div[1]/form/div/div[1]/div/div/div[1]/div/div[3]/div[2]/div/div",]
+                           "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div[1]/form/div/div[1]/div/div/div[1]/div/div[3]/div[2]/div/div",
+                           "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div[1]/form/div/div[1]/div/div/div[1]/div/div[3]/div[1]/div[2]/div[3]/input"]
        
 
 #^Group ids
@@ -56,7 +58,11 @@ class FacebookBot():
         login_button = driver.find_element_by_id('loginbutton')
         login_button.click() # Login click
         time.sleep(2) # Wait for 2 seconds for the page to show up
-
+ 
+    # def  get_imagePath(self): 
+    #     global image_paths
+    #     image_paths= []
+           
 #^Posting part
     
     def page_posting(self):
@@ -65,20 +71,71 @@ class FacebookBot():
 
             
             for p in group:
-                
+                #^Get homepage :
                 driver.get(GROUP_URL+p)            
                 time.sleep(5)
+
+                #^Get new post :
                 driver.find_element_by_xpath(self.fb_posting[0]).click() 
-                time.sleep(2)      
+                time.sleep(2) 
+                
+                #^Get images :
+
+                if (self.mode):
+                    try :
+                        x = driver.find_element_by_xpath(self.fb_posting[3])
+                        time.sleep(2)
+
+                        #^get current directory      
+                        cwd = os.getcwd()
+                
+                        #^get images from img folder        
+                        path =r"\img"
+                
+                        #^change directory to img folder
+                        os.chdir(cwd+path )
+                
+                        #^all images
+                        print("files are :",os.listdir())                
+                
+                        #^all paths        
+                            
+                        for p in os.listdir():
+                                #image_paths.append(cwd+path+"\{0}".format(p))
+                
+                                #print("images retrieved", image_paths)                 
+                            
+                                x.send_keys(cwd+path+"\{0}".format(p))
+                                
+                        #^clear dir
+                        os.chdir(cwd)        
+                                        
+                    except Exception as e:
+                            print("Error is: \n ",e)
+                            driver.close()  
+ 
+                else :
+                    pass  
+                  
+
+                time.sleep(2)     
+
+                #^ enter text :
 
                 driver.find_element_by_xpath(self.fb_posting[1]).send_keys(Keys.ENTER, self.textContents) 
-                time.sleep(2)      
-        
+                time.sleep(2)              
+                
+                #^ Post :
+
                 driver.find_element_by_xpath(self.fb_posting[2]).click()
+                time.sleep(5)
+                
+                #^ Counter :
                 i+=1
                 
                 print("posts completed",i)
-                time.sleep(2)  
+
+
                 
 
         except Exception as e:
@@ -89,19 +146,37 @@ class FacebookBot():
 
     
 def src_bot():
-    f = open('./credentials.json','r')
+    #^Passing the file details and fb credentials
+    f = open('./fb_credentials.json','r')
     t= open ('./PostingContents.txt','r')
     g = open('./group_links.txt','r')
     groups = g.read()
     data=json.loads(f.read())
     text= t.read()
-    #Init the object
-    bot=FacebookBot(data,text,groups)
-    bot.ids()
-    bot.login()
-    bot.page_posting()    
-    driver.close()
-    print("Task Completed Successfully!")
+
+    #^Boolean To handle images
+    mode = False   
+  
+    i = input("Do you want to upload with images? Reply with Y or N")
+    if (i =="N"):
+        #^Init the object
+        bot=FacebookBot(data,text,groups,mode)
+        bot.ids()
+        bot.login()
+        bot.page_posting()    
+        driver.close()
+        print("Task Completed Successfully!")
+        
+           
+    else :
+        mode = True
+        #^Init the object
+        bot=FacebookBot(data,text,groups,mode)
+        bot.ids()
+        bot.login()
+        bot.page_posting()    
+        driver.close()
+        print("Task Completed Successfully!")
 
 
 src_bot()    
