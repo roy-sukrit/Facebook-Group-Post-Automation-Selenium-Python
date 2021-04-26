@@ -3,7 +3,7 @@
 ![](demo_test.gif)
 
 ### What it does ?
-As it is named, this python script automatically logs in  your Facebook account and posts your text-based content on the Facebook Groups you are a member of or any public groups . 
+As it is named, this python script automatically logs in  your Facebook account and posts your text, image based content on the Facebook Groups you are a member of or any public groups . 
 
 
 ### How does it work or Instructions to use ?
@@ -11,9 +11,15 @@ As it is named, this python script automatically logs in  your Facebook account 
   
   - ✔️ To post the desire status/text, open the  **PostingContents.txt**  file in notepad, and add text there (this will not come in the double quotes).
   
-  - ✔️ Most important step - You have note down all the facebook groups url and paste the group **id's**  **facebook.com/groups/:id** in fb_credentials json file ( id is generally a unique number to identify the facebook group) . This is the most common way to mess up you can run into element not found error. 
+  - ✔️ Paste the urls of the group in the group_links.txt as URL1 , URL2 , ........ URL 'N' (this will not come in the double quotes)
   
-  - ✔️ After performing the  above steps, run the **fbPost.exe** to start posting.  
+  - ✔️ Put the images you wish to upload in img folder make sure to make it within 512 x 512 for best resolution
+  
+  - ✔️ After performing the above steps, run the **fbPost.exe** to start posting.  
+  
+  - ✔️ Press "Y" in the fbPost cmd if you wish to upload text with images and "N" if you just want to upload text based post . 
+    
+  - ✔️ That's it! Sit back and watch the bot post in your facebook groups. 
   
 
 ### Is it safe to use, and I have given my Facebook credentials?
@@ -26,10 +32,9 @@ As it is named, this python script automatically logs in  your Facebook account 
 - Thanks **Google** for creating <a href="https://chromedriver.chromium.org/">ChromeDriver</a> to control the chrome functions.
 
 #### Features i am working on :
-* Close after task completion 
 * Making a user friendly GUI 
-* Feature to add images and links
 * Refractoring the Code 
+* Feel free to report any issue or collaborate
 
 
 
