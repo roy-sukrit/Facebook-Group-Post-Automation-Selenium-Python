@@ -6,10 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 /files.py
-
+/demo_test.gif
 /img/download.png
 /img/qts9ublT.jpg
-
+/readme.md
 # C extensions
 *.so
 
